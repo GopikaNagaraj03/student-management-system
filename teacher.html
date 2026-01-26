@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Panel</title>
+  <style>
+    body {
+      font-family: 'Segoe UI';
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      margin: 0;
+      padding: 50px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #fd79a8;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #e84393;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Update Student Grades ✏️</h2>
+    <input type="text" id="studentName" placeholder="Student Name">
+    <input type="text" id="rollNo" placeholder="Roll Number">
+    <select id="subject">
+      <option value="">Select Subject</option>
+      <option value="Java">Java</option>
+      <option value="C++">C++</option>
+      <option value="Python">Python</option>
+      <option value="Database">Database</option>
+      <option value="NodeJS">NodeJS</option>
+    </select>
+    <select id="grade">
+      <option value="">Select Grade</option>
+      <option value="O">O</option>
+      <option value="A+">A+</option>
+      <option value="B+">B+</option>
+      <option value="C+">C+</option>
+    </select>
+    <button onclick="updateGrade()">Submit</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

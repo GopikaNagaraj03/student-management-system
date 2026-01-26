@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Panel</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 80px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 14px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #0099ff;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    tr:hover {
+      background-color: #e0f7fa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Welcome, <span id="studentName"></span> 🎓</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+      <tbody id="gradeTableBody">
+        <!-- Grades will be injected here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async function () {
+      const username = localStorage.getItem("username");
+      const userId = localStorage.getItem("userId");
+      document.getElementById("studentName").textContent = username;
+
+      try {
+        const res = await fetch(`http://localhost:8080/student/${userId}/grades`);
+        const grades = await res.json();
+
+        const tableBody = document.getElementById("gradeTableBody");
+        tableBody.innerHTML = "";
+
+        grades.forEach(grade => {
+          const row = `<tr>
+              <td>${grade.subject}</td>
+              <td>${grade.grade}</td>
+            </tr>`;
+          tableBody.innerHTML += row;
+        });
+      } catch (err) {
+        console.error("Error fetching grades:", err);
+        alert("Unable to fetch grades. Please try again later.");
+      }
+    });
+  </script>
+</body>
+</html>

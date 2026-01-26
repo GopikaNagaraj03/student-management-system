@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI';
+      background: linear-gradient(to bottom, #fdfcfb, #e2d1c3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      background: #ff5e62;
+      border: none;
+      padding: 10px 25px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e94e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login 🔐</h2>
+    <input type="text" id="username" placeholder="Enter your name">
+    <input type="text" id="rollno" placeholder="Enter your roll number">
+    <button onclick="loginUser()">Login</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
